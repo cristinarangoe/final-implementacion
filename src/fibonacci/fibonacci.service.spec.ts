@@ -1,5 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FibonacciService } from './fibonacci.service';
+import {CreateFibonacci} from './dto/create-fibonacci.dto'
+import { validate } from 'class-validator';
 
 describe('FibonacciService', () => {
   let service: FibonacciService;
@@ -28,4 +30,19 @@ describe('FibonacciService', () => {
     expect(service.calcularSerie(fibonacci)).toEqual(number);
   });
 
+  it('Deberia devolver errores si n fibonacci es de < 0',async  () => {
+    const fibonacci = new CreateFibonacci()
+    fibonacci.n = -5
+    const errors = await validate(fibonacci)
+
+    expect(errors.length).toBeGreaterThan(0);
+  });
+
+  it('Deberia devolver errores si n fibonacci es 0',async  () => {
+    const fibonacci = new CreateFibonacci()
+    fibonacci.n = 0
+    const errors = await validate(fibonacci)
+
+    expect(errors.length).toBeGreaterThan(0);
+  });
 });
