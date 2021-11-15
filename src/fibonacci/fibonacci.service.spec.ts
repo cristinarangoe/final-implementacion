@@ -15,4 +15,17 @@ describe('FibonacciService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('Fibonacci de n=5', () => {
+    const number=[0,1,1,2,3];
+    const fibonacci={n:5};
+    expect(service.calcularSerie(fibonacci)).toEqual(number);
+  });
+
+  it('Fibonacci de n=10', () => {
+    const number=[0,1,1,2,3,5,8,13,21,34];
+    const fibonacci={n:10};
+    expect(service.calcularSerie(fibonacci)).toEqual(number);
+  });
+
 });

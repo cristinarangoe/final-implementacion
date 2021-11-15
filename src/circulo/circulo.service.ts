@@ -4,7 +4,7 @@ import { CreateCirculo as Circulo } from './dto/create-circulo.dto';
 @Injectable()
 export class CirculoService {
   private calcularArea({ r }: Circulo): number {
-    return Math.PI * Math.sqrt(r);
+    return Math.PI * Math.pow(r,2);
   }
 
   private calcularPerimetro({ r }: Circulo): number {

@@ -21,4 +21,11 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect('Hello World!');
   });
+
+  // it('/Factorial (POST)', () => {
+  //   return request(app.getHttpServer())
+  //     .post('/factorial')
+  //     .expect(200)
+  //     .expect('120');
+  // });
 });

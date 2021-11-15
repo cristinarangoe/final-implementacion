@@ -14,12 +14,11 @@ import { Response } from 'express';
 export class FactorialController {
   constructor(private factorialService: FactorialService) {}
   @Post()
-  async calcularArea(
+  async calcularFactorial(
     @Body(new ValidationPipe()) factorial: CreateFactorial,
     @Res() response: Response,
   ) {
     const calculos = await this.factorialService.calcularFactorial(factorial);
-
     return response.status(HttpStatus.OK).json(calculos);
   }
 }
